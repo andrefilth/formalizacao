@@ -1,0 +1,56 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://santander/frontUnico/previdencia" targetNamespace="http://santander/frontUnico/previdencia"
+	elementFormDefault="qualified">
+
+	<xs:element name="getFormalizaRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="acessoUsuario" 			type="tns:AcessoUsuario" />
+				<xs:element name="codigoProposta"		 	type="xs:string" />
+				<xs:element name="dataCriacao"		 		type="xs:dateTime" />
+				<xs:element name="dataAutenticacao"		 	type="xs:dateTime" />
+				<xs:element name="hashId"		 			type="xs:string" />
+				<xs:element name="canal" 					type="tns:Canal" />
+				<xs:element name="codigoAutenticacao"		type="xs:string" />
+				<xs:element name="imperativaContratacao" 	type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:complexType name="AcessoUsuario">
+		<xs:sequence>
+			<xs:element name="dataHora" 			type="xs:dateTime" />
+			<xs:element name="sistema" 				type="xs:string" />
+			<xs:element name="codigoUsuario" 		type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Canal">
+		<xs:sequence>
+			<xs:element name="codigo" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="getFormalizaResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="retorno" 				type="tns:Retorno" minOccurs="0"/>
+				<xs:element name="codigoAdesao" 		type="xs:string" minOccurs="0"/>
+				<xs:element name="codigoCertificado" 	type="xs:string" minOccurs="0"/>
+				<xs:element name="codigoUsuario" 		type="xs:string" minOccurs="0"/>
+				<xs:element name="dadosProduto" 		type="xs:string" minOccurs="0"/>
+				<xs:element name="dadosMobile"			type="xs:string" minOccurs="0"/>
+				<xs:element name="disclaimer" 			type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>  
+
+	<xs:complexType name="Retorno">
+		<xs:sequence>
+			<xs:element name="codigo" type="xs:string" minOccurs="0"/>
+			<xs:element name="descricao" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
